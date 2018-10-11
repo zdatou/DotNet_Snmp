@@ -1,0 +1,189 @@
+xHTime-MIB DEFINITIONS ::= BEGIN
+IMPORTS
+enterprises
+            FROM RFC1155-SMI 
+        Integer32
+            FROM SNMPv2-SMI            
+        DisplayString
+            FROM SNMPv2-TC;
+
+  xHTime OBJECT IDENTIFIER ::= {enterprises 22566}  
+
+
+
+xHTimeTable OBJECT-TYPE 
+SYNTAX   SEQUENCE OF XHTimeEntry 
+   MAX-ACCESS not-accessible
+   STATUS  current
+   DESCRIPTION "XHTimeTable." 
+   ::= {xHTime 1}
+  
+   xHTimeEntry OBJECT-TYPE 
+   SYNTAX    XHTimeEntry 
+   MAX-ACCESS  not-accessible    
+   STATUS  current
+   DESCRIPTION "XHTimeEntry."     
+   INDEX  {xHTimeLocalIPInfo}             
+   ::= {xHTimeTable 1}   
+   
+XHTimeEntry ::= SEQUENCE {
+    xHTimeLocalIPInfo        DisplayString,
+    xHTimeLocalGWInfo        DisplayString,
+    xHTimeLocalNMInfo        DisplayString, 
+
+    xHTimeNTPIPInfo          DisplayString,
+    xHTimeNTPGWInfo          DisplayString,
+    xHTimeNTPNMInfo          DisplayString,
+
+    xHTimeUTCTimeInfo        DisplayString
+    xHTimePosInfo            DisplayString
+    xHTimeTameStateInfo      DisplayString
+    xHTimeTimeSourceInfo     DisplayString
+
+    xHTimePtpModeInfo        DisplayString
+    xHTimePtpStateInfo       DisplayString
+    xHTimePtpTimeInfo        DisplayString
+    xHTimeRemoteIpInfo       DisplayString
+
+    xHTimePtpE1ModeInfo      DisplayString
+    xHTimePtpE1StateInfo     DisplayString
+    xHTimePtpE1TimeInfo      DisplayString
+}
+
+xHTimeLocalIPInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 1}
+
+xHTimeLocalGWInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 2}
+
+xHTimeLocalNMInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 3}
+
+
+xHTimeNTPIPInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 4}
+
+xHTimeNTPGWInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 5}
+
+xHTimeNTPNMInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 6}
+
+xHTimeUTCTimeInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 7}
+
+xHTimePosInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 8}
+
+xHTimeTameStateInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 9}
+
+xHTimeTimeSourceInfo OBJECT-TYPE
+SYNTAX DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION
+" "
+::={xHTimeEntry 10}
+
+xHTimePtpModeInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 11}
+
+xHTimePtpStateInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 12}
+
+xHTimePtpTimeInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION
+" "
+::={xHTimeEntry 13}
+
+xHTimeRemoteIpInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION
+" "
+::={xHTimeEntry 14}
+
+xHTimePtpE1ModeInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-write
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 15}
+
+xHTimePtpE1StateInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 16}
+
+xHTimePtpE1TimeInfo OBJECT-TYPE 
+SYNTAX  DisplayString
+MAX-ACCESS read-only
+STATUS current
+DESCRIPTION 
+" "
+::= {xHTimeEntry 17}
+END
